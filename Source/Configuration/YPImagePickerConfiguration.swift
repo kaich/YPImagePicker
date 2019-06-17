@@ -90,6 +90,9 @@ public struct YPImagePickerConfiguration {
     /// Defines the text colour to be shown when a bottom option is unselected
     public var bottomMenuItemUnSelectedColour = UIColor(r: 153, g: 153, b: 153)
     
+    /// Define the navigation bar title 
+    public var titleTextAttributes: [NSAttributedString.Key : Any]?
+    
     /// List of default filters which will be added on the filter screen
     public var filters: [YPFilter] = [
         YPFilter(name: "Normal", applier: nil),

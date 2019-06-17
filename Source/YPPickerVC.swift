@@ -215,12 +215,12 @@ open class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
         label.font = UIFont.boldSystemFont(ofSize: 17)
         
         // Use custom font if set by user.
-        if let navBarTitleFont = UINavigationBar.appearance().titleTextAttributes?[.font] as? UIFont {
+        if let navBarTitleFont = YPConfig.titleTextAttributes?[.font] as? UIFont {
             // Use custom font if set by user.
             label.font = navBarTitleFont
         }
         // Use custom textColor if set by user.
-        if let navBarTitleColor = UINavigationBar.appearance().titleTextAttributes?[.foregroundColor] as? UIColor {
+        if let navBarTitleColor = YPConfig.titleTextAttributes?[.foregroundColor] as? UIColor {
             label.textColor = navBarTitleColor
         }
         
@@ -234,7 +234,7 @@ open class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
             let arrow = UIImageView()
             arrow.image = YPConfig.icons.arrowDownIcon
             
-            let attributes = UINavigationBar.appearance().titleTextAttributes
+            let attributes = YPConfig.titleTextAttributes
             if let attributes = attributes, let foregroundColor = attributes[NSAttributedString.Key.foregroundColor] as? UIColor {
                 arrow.image = arrow.image?.withRenderingMode(.alwaysTemplate)
                 arrow.tintColor = foregroundColor
@@ -268,6 +268,7 @@ open class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
                                                            style: .plain,
                                                            target: self,
                                                            action: #selector(close))
+        navigationItem.leftBarButtonItem?.tintColor = YPConfig.colors.tintColor
         
         switch mode {
         case .library:
